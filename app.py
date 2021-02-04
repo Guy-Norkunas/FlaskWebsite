@@ -1,12 +1,4 @@
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
+from project import app
 
-app = Flask(__name__)
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://guy:password@localhost/test'
-db = SQLAlchemy(app)
-
-@app.route('/')
-def hello_world():
-    
-    return("hello there")
+if __name__ == '__main__':
+    app.run(debug=True, port=5000)
