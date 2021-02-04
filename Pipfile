@@ -9,6 +9,7 @@ flask-sqlalchemy = "*"
 flask-modus = "*"
 flask-migrate = "*"
 werkzeug = "==0.16.0"
+mysqlclient = "*"
 
 [dev-packages]
 
