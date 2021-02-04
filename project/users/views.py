@@ -7,6 +7,6 @@ users_blueprint = Blueprint(
     template_folder='templates'
 )   
 
-@users_blueprint.route('/', methods =["GET"])
+@users_blueprint.route('/', methods =["GET", "POST"])
 def index():
     return render_template('index.html', users=User.query.all())
