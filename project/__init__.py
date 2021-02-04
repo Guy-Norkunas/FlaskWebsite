@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_modus import Modus
 from flask_migrate import Migrate
@@ -30,4 +30,4 @@ app.register_blueprint(users_blueprint, url_prefix='/user')
 
 @app.route('/')
 def root():
-    return "Hello there."
+    return render_template('base.html')
