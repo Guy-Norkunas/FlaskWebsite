@@ -9,8 +9,8 @@ users_blueprint = Blueprint(
 
 @users_blueprint.route('/', methods=["GET", "POST"])
 def self():
-    return render_template('user.html', users=User.query.all())
+    return render_template('user.html', user=User.query.get(1))
 
 @users_blueprint.route('/<id>', methods=["GET", "POST"])
 def other(id):
-    return render_template('user.html', users=User.query.get(id))
+    return render_template('user.html', user=User.query.get(id))
