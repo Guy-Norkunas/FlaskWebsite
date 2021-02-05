@@ -38,7 +38,7 @@ app.register_blueprint(home_blueprint, url_prefix='/home')
 
 # blueprint for comparison page
 
-from project.compare.views import compare_blueprint
+from project.comparison.views import compare_blueprint
 app.register_blueprint(compare_blueprint, url_prefix='/compare')
 
 # root route
