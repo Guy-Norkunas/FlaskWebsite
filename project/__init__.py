@@ -41,9 +41,9 @@ app.register_blueprint(home_blueprint, url_prefix='/home')
 from project.comparison.views import compare_blueprint
 app.register_blueprint(compare_blueprint, url_prefix='/compare')
 
-# blueprint for comparison page
+# blueprint for movies page
 
-from project.movies.views import compare_blueprint
+from project.movies.views import movies_blueprint
 app.register_blueprint(movies_blueprint, url_prefix='/movie')
 
 # root route
