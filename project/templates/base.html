@@ -10,19 +10,22 @@
         <div class="container-fluid">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
-            <a class="navbar-brand" href="http://localhost:5000/home">MOVIE COMPARER</a>
+            <a class="navbar-brand" href="{{ url_for('home.index') }}">MOVIE COMPARER</a>
           </div>
       
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-left">
-              <li><a href="http://localhost:5000/home">HOME</a></li>
-              <li><a href="#">COMPARE</a></li>
+              <li><a href="{{ url_for('home.index') }}">HOME</a></li>
+              <li><a href="{{ url_for('compare.index') }}">COMPARE</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://localhost:5000/user">USERNAME</a></li>
-                <li><a href="http://localhost:5000/login">LOG IN</a></li>
+                <li><a href="{{ url_for('users.self') }}">USERNAME</a></li>
+                <li><a href="{{ url_for('auth.login') }}">LOG IN</a></li>
+                <li><a href="{{ url_for('auth.signup') }}">SIGN UP</a></li>
+                <li><a href="{{ url_for('auth.logout') }}">LOG OUT</a></li>
+
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->

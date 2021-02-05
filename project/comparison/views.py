@@ -8,5 +8,5 @@ compare_blueprint = Blueprint(
 )
 
 @compare_blueprint.route('/', methods=["GET"])
-def home():
+def index():
     return render_template('compare.html')

@@ -8,5 +8,5 @@ home_blueprint = Blueprint(
 )
 
 @home_blueprint.route('/', methods=["GET", "POST"])
-def home():
+def index():
     return render_template('home.html')
