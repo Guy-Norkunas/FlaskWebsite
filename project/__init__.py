@@ -14,6 +14,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://guy:password@localhost/test'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = "test123"
 db = SQLAlchemy(app)
+db.init_app(app)
 
 migrate = Migrate(app, db)
 
@@ -21,10 +22,21 @@ migrate = Migrate(app, db)
 
 modus = Modus(app)
 
-# bluepring initialisation
+# bluepring initialisations
 
 from project.users.views import users_blueprint
 app.register_blueprint(users_blueprint, url_prefix='/user')
+
+# blueprint for auth routes
+
+from project.auth.views import auth_blueprint
+app.register_blueprint(auth_blueprint)
+
+# blueprint for non-auth routes
+
+from project.home.views import home_blueprint
+app.register_blueprint(home_blueprint, url_prefix='/home')
+
 
 # root route
 
