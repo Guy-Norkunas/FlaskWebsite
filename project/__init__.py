@@ -1,6 +1,5 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
-# from flask_modus import Modus
 from flask_migrate import Migrate
 import os
 
@@ -19,8 +18,6 @@ db.init_app(app)
 migrate = Migrate(app, db)
 
 # method overides
-
-# modus = Modus(app)
 
 ## blueprint initialisations
 
