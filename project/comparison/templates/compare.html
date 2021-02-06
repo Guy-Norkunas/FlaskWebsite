@@ -3,8 +3,13 @@
 {% block content %}
 
 <p>
-    {{"compare"}}
+    <form action="{{url_for('compare.index')}}" method="GET">
+        <input name="users" id="users" type="text">
+        <button> COMPARE </button>
+    </form>
     <br>
 </p>
+
+
 
 {% endblock %}
