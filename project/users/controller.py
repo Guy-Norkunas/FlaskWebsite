@@ -8,12 +8,12 @@ users_blueprint = Blueprint(
     template_folder='templates'
 )   
 
-@login_required
 @users_blueprint.route('/', methods=["GET"])
+@login_required
 def self():
     return render_template('user.html', user=User.query.get(current_user.id))
 
-@login_required
 @users_blueprint.route('/<id>', methods=["GET"])
+@login_required
 def other(id):
     return render_template('user.html', user=User.query.get(id))

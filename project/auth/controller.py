@@ -88,8 +88,8 @@ def signup_post():
 
 # logout route
 
-@login_required
 @auth_blueprint.route('/logout', methods=["GET"])
+@login_required
 def logout():
     logout_user()
     flash('Successfully logged out')
