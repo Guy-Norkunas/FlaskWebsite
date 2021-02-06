@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, redirect
+from flask import Flask, render_template, url_for, redirect, get_flashed_messages
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 import os
@@ -50,4 +50,5 @@ app.register_blueprint(movies_blueprint, url_prefix='/movie')
 
 @app.route('/')
 def root():
+    get_flashed_messages()
     return render_template('base.html')
