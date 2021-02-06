@@ -8,12 +8,15 @@ users_blueprint = Blueprint(
     template_folder='templates'
 )   
 
-@users_blueprint.route('/', methods=["GET"])
-@login_required
-def self():
-    return render_template('user.html', user=User.query.get(current_user.id))
-
 @users_blueprint.route('/<id>', methods=["GET"])
 @login_required
-def other(id):
-    return render_template('user.html', user=User.query.get(id))
+def index(id):
+    movies = []
+
+    user_movies = Movies.query.filter_by(user_id=current_user.id).with_entities(Movies.movie_id).all()
+    for user_movie in user_movies:
+
+        r = requests.get(f"https://api.themoviedb.org/3/movie/{user_movie[0]}?api_key=cd082f86556318fbd6e151825ae40fc7&language=en-US")
+        movies.append(r.json())
+
+    return render_template('user.html', user=User.query.get(id), movies = )
