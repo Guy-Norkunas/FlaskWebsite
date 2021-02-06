@@ -6,14 +6,14 @@ auth_blueprint = Blueprint(
     template_folder='templates'
 )   
 
-@auth_blueprint.route('/login', methods=["GET", "POST"])
+@auth_blueprint.route('/login', methods=["GET"])
 def login():
     return render_template('login.html')
 
-@auth_blueprint.route('/logout', methods=["GET", "POST"])
+@auth_blueprint.route('/logout', methods=["GET"])
 def logout():
     return render_template('logout.html')
 
-@auth_blueprint.route('/signup', methods=["GET", "POST"])
+@auth_blueprint.route('/signup', methods=["GET"])
 def signup():
     return render_template('signup.html')
