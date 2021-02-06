@@ -11,5 +11,5 @@ home_blueprint = Blueprint(
 @home_blueprint.route('/', methods=["GET"])
 def index():
     r = requests.get('https://api.github.com/events')
-    print(r)
+    print(r.text)
     return render_template('home.html')
