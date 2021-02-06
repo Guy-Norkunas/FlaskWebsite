@@ -10,6 +10,33 @@
     <br>
 </p>
 
+{% for movie in movies %}
+
+<div style="width: auto;">
+    <div class="container" style="justify-content: center; margin: 10px; background-color: beige; border-width  : 1px; border-color: black; border-radius: 20px; border-style: solid;">
+        <div class="card mb-3" style="max-width: 70vw;">
+            <a href="{{url_for('movies.movie', id=movie.id)}}">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="{{'https://image.tmdb.org/t/p/original/' + movie['poster_path']}}" style="width: 15vw;" class="card-img" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h1 class="card-title">{{movie['title']}}</h1>
+                            <p class="card-text">{{movie['overview']}}</p>
+                            <p class="card-text"><small class="text-muted">{{movie['release_date']}}</small></p>
+                            <form action="{{ url_for('movies.favourite', url=request.path, id=movie.id) }}" method="POST"><button> FAVOURITE </button></form>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+{% endfor %}
+
 
 {% endblock %}
 
