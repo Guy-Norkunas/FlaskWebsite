@@ -20,7 +20,7 @@
 
           <ul class="nav navbar-nav navbar-right">
               {% if current_user.is_authenticated %}
-              <li><a href="{{ url_for('users.self') }}">{{current_user.username}}</a></li>
+              <li><a href="{{ url_for('users.index') }}">{{current_user.username}}</a></li>
               <li><a href="{{ url_for('auth.logout') }}">LOG OUT</a></li>
               {% else %}
               <li><a href="{{ url_for('auth.login_get') }}">LOG IN</a></li>
