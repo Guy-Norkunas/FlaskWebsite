@@ -1,6 +1,4 @@
 from flask import Blueprint, render_template
-from flask_login import current_user
-
 
 home_blueprint = Blueprint(
     'home',
@@ -10,5 +8,4 @@ home_blueprint = Blueprint(
 
 @home_blueprint.route('/', methods=["GET"])
 def index():
-    print(current_user.username)
     return render_template('home.html')
