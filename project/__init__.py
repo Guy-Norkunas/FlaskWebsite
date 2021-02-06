@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for, redirect, get_flashed_messages
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from flask_login import LoginManager
 import os
 
 # basic initialisation
@@ -16,6 +17,7 @@ db = SQLAlchemy(app)
 db.init_app(app)
 
 migrate = Migrate(app, db)
+login_manager = LoginManager()
 
 # method overides
 
