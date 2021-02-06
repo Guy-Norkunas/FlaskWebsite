@@ -20,12 +20,12 @@ class User(UserMixin, db.Model):
 
 # movies table
 
-class Movies(db.model):
+class Movies(db.Model):
     __tablename__ = 'movies'
 
     # Structure of table
 
-    id = db.column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     movie_id = db.Column(db.Integer)
     user_id = db.Column(db.Integer)
 

@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template
 from flask_login import current_user
+import requests
 
 home_blueprint = Blueprint(
     'home',
@@ -9,4 +10,6 @@ home_blueprint = Blueprint(
 
 @home_blueprint.route('/', methods=["GET"])
 def index():
+    r = requests.get('https://api.github.com/events')
+    print(r)
     return render_template('home.html')
