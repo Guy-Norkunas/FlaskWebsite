@@ -23,27 +23,27 @@ migrate = Migrate(app, db)
 
 # blueprint for user pages
 
-from project.users.views import users_blueprint
+from project.users.controller import users_blueprint
 app.register_blueprint(users_blueprint, url_prefix='/user')
 
 # blueprint for auth pages
 
-from project.auth.views import auth_blueprint
+from project.auth.controller import auth_blueprint
 app.register_blueprint(auth_blueprint)
 
 # blueprint for home page
 
-from project.home.views import home_blueprint
+from project.home.controller import home_blueprint
 app.register_blueprint(home_blueprint, url_prefix='/home')
 
 # blueprint for comparison page
 
-from project.comparison.views import compare_blueprint
+from project.comparison.controller import compare_blueprint
 app.register_blueprint(compare_blueprint, url_prefix='/compare')
 
 # blueprint for movies page
 
-from project.movies.views import movies_blueprint
+from project.movies.controller import movies_blueprint
 app.register_blueprint(movies_blueprint, url_prefix='/movie')
 
 # root route
