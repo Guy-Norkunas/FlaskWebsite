@@ -1,6 +1,8 @@
 from flask import Blueprint, render_template, redirect, request
 from flask_login import current_user, login_required
 import requests
+from project.models import Movies
+from project import db
 
 movies_blueprint = Blueprint(
     'movies',
@@ -15,8 +17,25 @@ def movie(id):
 
     return render_template('movie.html', movie=r.json())
 
+# favourite logic
+
 @movies_blueprint.route('/<id>', methods=["POST"])
 @login_required
 def favourite(id):
-    print(request.args.get('url'))
-    return redirect(request.args.get('url'))
+    
+    favourite = Movies.query.filter_by(user_id=current_user.id).filter_by(movie_id=id).first()
+
+    if favourite:
+
+        print("first condition")
+        print(favourite.id)
+
+        db.session.delete(favourite)
+        db.session.commit()
+        return redirect(request.args.get('url'))
+    else:
+        print("second condition")
+        new_favourite = Movies(user_id=current_user.id, movie_id=id)
+        db.session.add(new_favourite)
+        db.session.commit()
+        return redirect(request.args.get('url'))
