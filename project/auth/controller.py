@@ -53,6 +53,6 @@ def signup_post():
 
 # logout route
 
-@auth_blueprint.route('/logout', methods=["DELETE"])
+@auth_blueprint.route('/logout', methods=["GET"])
 def logout():
     return render_template('logout.html')
