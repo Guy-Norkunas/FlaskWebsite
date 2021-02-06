@@ -1,4 +1,6 @@
-from flask import Blueprint, render_template, redirect, url_for
+from flask import Blueprint, render_template, redirect, url_for, request, flash
+from project.models import User
+
 
 auth_blueprint = Blueprint(
     'auth',
@@ -32,6 +34,14 @@ def signup_get():
 
 @auth_blueprint.route('/signup', methods=["POST"])
 def signup_post():
+    username = request.form.get('username')
+    password = request.form.get('password')
+
+
+    if User.query.filter_by(username=username).first():
+        flash('username is already taken')
+        return redirect(url_for('auth.signup_get'))
+
     return redirect(url_for('home.index'))
 
 # logout route
