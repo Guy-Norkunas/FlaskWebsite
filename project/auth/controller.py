@@ -22,6 +22,19 @@ def login_get():
 
 @auth_blueprint.route('/login', methods=["POST"])
 def login_post():
+
+    username = request.form.get('username')
+    password = request.form.get('password')
+
+    user = User.query.filter_by(username=username).first()
+
+    if user and check_password_hash(user.password, password):
+        return redirect(url_for('home.index'))
+    else:
+        flash('Incorrect username or password')
+        return redirect(url_for('auth.login_get'))
+
+
     return redirect(url_for('home.index'))
 
 ## signup routes
