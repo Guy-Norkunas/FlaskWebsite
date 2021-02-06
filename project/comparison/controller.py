@@ -13,11 +13,14 @@ compare_blueprint = Blueprint(
 def index():
     print(request.args.get('users'))
 
-    user_movies = Movies.query.filter_by(user_id=current_user).all()
+    user_movies = Movies.query.filter_by(user_id=current_user.id).all()
     user = User.query.filter_by(username=request.args.get('users')).first()
-    other_movies = Movies.query.filter_by(user_id=user).all()
+    other_movies = Movies.query.filter_by(user_id=user.id).all()
 
-    print(user_movies)
-    print(other_movies)
 
-    return render_template('compare.html', movies = )
+    for user_movie in user_movies:
+        print(user_movie.movie_id)
+    for other_movie in other_movies:
+        print(other_movie.movie_id)
+
+    return render_template('compare.html', movies = 0)
