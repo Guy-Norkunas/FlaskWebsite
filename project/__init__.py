@@ -2,7 +2,6 @@ from flask import Flask, render_template, url_for, redirect, get_flashed_message
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager, current_user
-import os
 
 # basic initialisation
 
@@ -20,7 +19,7 @@ migrate = Migrate(app, db)
 # login manager config
 
 login_manager = LoginManager()
-login_manager.login_view = 'auth.login'
+login_manager.login_view = 'auth.login_get'
 login_manager.init_app(app)
 
 from .models import User
