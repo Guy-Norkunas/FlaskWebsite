@@ -6,8 +6,8 @@ class User(db.Model):
     # Structure of table
 
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.Text)
-    password = db.Column(db.Text)
+    username = db.Column(db.String(100), unique=True)
+    password = db.Column(db.String(100))
 
     # Getter and Setter?
 
