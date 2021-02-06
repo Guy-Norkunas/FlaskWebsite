@@ -1,7 +1,7 @@
 from flask import Flask, render_template, url_for, redirect, get_flashed_messages
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from flask_login import LoginManager
+from flask_login import LoginManager, current_user
 import os
 
 # basic initialisation

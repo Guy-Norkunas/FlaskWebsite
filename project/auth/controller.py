@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, redirect, url_for, request, flash, session
-from flask_login import login_user, current_user
+from flask_login import login_user, current_user, logout_user, login_required
 from werkzeug.security import generate_password_hash, check_password_hash
 from project.models import User
 from project import db
@@ -17,12 +17,21 @@ auth_blueprint = Blueprint(
 
 @auth_blueprint.route('/login', methods=["GET"])
 def login_get():
+
+    if current_user.is_authenticated:
+        flash('You are already logged in')
+        return redirect(url_for('home.index'))
+
     return render_template('login.html')
 
 # post
 
 @auth_blueprint.route('/login', methods=["POST"])
 def login_post():
+
+    if current_user.is_authenticated:
+        flash('You are already logged in')
+        return redirect(url_for('home.index'))
 
     username = request.form.get('username')
     password = request.form.get('password')
@@ -45,12 +54,22 @@ def login_post():
 
 @auth_blueprint.route('/signup', methods=["GET"])
 def signup_get():
+
+    if current_user.is_authenticated:
+        flash('You are already logged in')
+        return redirect(url_for('home.index'))
+
     return render_template('signup.html')
 
 # post
 
 @auth_blueprint.route('/signup', methods=["POST"])
 def signup_post():
+
+    if current_user.is_authenticated:
+        flash('You are already logged in')
+        return redirect(url_for('home.index'))
+
     username = request.form.get('username')
     password = request.form.get('password')
 
@@ -69,8 +88,9 @@ def signup_post():
 
 # logout route
 
+@login_required
 @auth_blueprint.route('/logout', methods=["GET"])
 def logout():
-    session.clear()
+    logout_user()
     flash('Successfully logged out')
     return render_template('home.html')

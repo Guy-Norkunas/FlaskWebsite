@@ -8,12 +8,10 @@
 <body>
     <nav class="navbar navbar-default">
       <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
           <a class="navbar-brand" href="{{ url_for('home.index') }}">MOVIE COMPARER</a>
         </div>
     
-        <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-left">
             <li><a href="{{ url_for('home.index') }}">HOME</a></li>
@@ -21,14 +19,17 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-              <li><a href="{{ url_for('users.self') }}">USERNAME</a></li>
+              {% if current_user.is_authenticated %}
+              <li><a href="{{ url_for('users.self') }}">{{current_user.username}}</a></li>
+              <li><a href="{{ url_for('auth.logout') }}">LOG OUT</a></li>
+              {% else %}
               <li><a href="{{ url_for('auth.login_get') }}">LOG IN</a></li>
               <li><a href="{{ url_for('auth.signup_get') }}">SIGN UP</a></li>
-              <li><a href="{{ url_for('auth.logout') }}">LOG OUT</a></li>
+              {% endif %}
 
           </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
+        </div>
+      </div>
     </nav>
 
     {% with messages = get_flashed_messages(with_categories=true) %}
