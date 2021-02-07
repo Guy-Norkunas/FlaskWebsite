@@ -8,7 +8,7 @@
     button = document.getElementById("favourite");
     button.innerHTML = "favourite"
 
-    fetch("http://localhost:5000/movie/{{movie.id}}")
+    fetch("http://localhost:5000/movie/{{movie.id}}/favourite")
         .then(function (response) {
             return response;
         })
