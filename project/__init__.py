@@ -9,12 +9,12 @@ app = Flask(__name__)
 
 # database connection / config
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://admin:password@database-1.cwzkcekt4xsp.ap-southeast-2.rds.amazonaws.com/MovieComparer'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://admin:password@database-1.cwzkcekt4xsp.ap-southeast-2.rds.amazonaws.com:3311/MovieComparer'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = "test123"
 db = SQLAlchemy(app)
 db.init_app(app)
-migrate = Migrate(app, db)
+# migrate = Migrate(app, db)
 
 # login manager config
 
