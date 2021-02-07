@@ -12,5 +12,4 @@ home_blueprint = Blueprint(
 def index():
 
     r = requests.get('https://api.themoviedb.org/3/discover/movie?api_key=cd082f86556318fbd6e151825ae40fc7&language=en-US&sort_by=popularity.desc&include_video=false&page=1')
-    print(r.json()['results'])
     return render_template('home.html', movies=r.json()['results'])
