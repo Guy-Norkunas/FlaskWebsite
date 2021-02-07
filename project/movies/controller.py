@@ -50,6 +50,6 @@ def favourite(id):
 def isFavourite(id):
     favourite = Movies.query.filter_by(user_id=current_user.id).filter_by(movie_id=id).first()
     if favourite:
-        return {"favourite":"True"}
+        return redirect('/?favourite=yes')
     else:
-        return {"favourite":"False"}
+        return redirect('/?favourite=no')
