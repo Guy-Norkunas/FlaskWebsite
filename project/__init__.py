@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 # database connection / config
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://guy:password@localhost/test'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://admin:password@database-1.cwzkcekt4xsp.ap-southeast-2.rds.amazonaws.com/MovieComparer'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = "test123"
 db = SQLAlchemy(app)
