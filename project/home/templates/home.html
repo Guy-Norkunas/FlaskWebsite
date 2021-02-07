@@ -18,24 +18,24 @@
     <div class="container" style="justify-content: center; margin: 10px; background-color: beige; border-width  : 1px; border-color: black; border-radius: 20px; border-style: solid;">
         <div class="card mb-3" style="max-width: 70vw;">
             <div class="row no-gutters">
-                    <a href="{{url_for('movies.movie', id=movie.id)}}">
-                        <div class="col-md-4">
-                            <img src="{{'https://image.tmdb.org/t/p/original/' + movie['poster_path']}}" style="width: 15vw;" class="card-img" alt="...">
-                        </div>
-                    </a>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <a href="{{url_for('movies.movie', id=movie.id)}}">
-                                <h1 class="card-title">{{movie['title']}}</h1>
-                                <p class="card-text">{{movie['overview']}}</p>
-                                <p class="card-text"><small class="text-muted">{{movie['release_date']}}</small></p>
-                            </a>
-                            {% if current_user.id %}
-                            <button id="favourite" type="button" onclick="favourite()">FAVOURITE</button>
-                            {% endif %}
-                        </div>
+                <a href="{{url_for('movies.movie', id=movie.id)}}">
+                    <div class="col-md-4">
+                        <img src="{{'https://image.tmdb.org/t/p/original/' + movie['poster_path']}}" style="width: 15vw;" class="card-img" alt="...">
+                    </div>
+                </a>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <a href="{{url_for('movies.movie', id=movie.id)}}">
+                            <h1 class="card-title">{{movie['title']}}</h1>
+                            <p class="card-text">{{movie['overview']}}</p>
+                            <p class="card-text"><small class="text-muted">{{movie['release_date']}}</small></p>
+                        </a>
+                        {% if current_user.id %}
+                        <button id="favourite" type="button" onclick="favourite()">FAVOURITE</button>
+                        {% endif %}
                     </div>
                 </div>
+            </div>
         </div>
     </div>
 </div>
