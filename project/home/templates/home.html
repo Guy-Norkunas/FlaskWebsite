@@ -10,7 +10,7 @@
 
     fetch("http://localhost:5000/movie/{{movie.id}}")
         .then(function (response) {
-            return response.body.text;
+            return response;
         })
         .then(function (response) {
             console.log(response);

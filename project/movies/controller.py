@@ -45,11 +45,11 @@ def favourite(id):
 
 # method for checking if favourited
 
-@movies_blueprint.route('/<id>', methods=["GET"])
+@movies_blueprint.route('/<id>/favourite', methods=["GET"])
 @login_required
 def isFavourite(id):
     favourite = Movies.query.filter_by(user_id=current_user.id).filter_by(movie_id=id).first()
     if favourite:
-        return "True"
+        return {"favourite":"True"}
     else:
-        return "False"
+        return {"favourite":"False"}
