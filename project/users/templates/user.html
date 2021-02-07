@@ -64,7 +64,7 @@
     function favourite(event) {
 
         object = event.target;
-        fetch(`http://localhost:5000/movie/${object.id.replace('favourite','')}`,
+        fetch(`http://movie-comparer.herokuapp.com/movie/${object.id.replace('favourite','')}`,
         {
             method: "POST"
         })
