@@ -49,15 +49,11 @@
                 return response;
             })  
             .then(function (response) {
-                console.log("this is the response.url.slice(-2): ")
-                console.log(response.url.slice(-2))
-
+     
                 if(response.url.slice(-2) == "no"){
-                    console.log("if")
                     myButtons[movie].innerHTML = "favourite";
                 }
                 else {
-                    console.log("else")
                     myButtons[movie].innerHTML = "unfavourite"
                 }
             })
@@ -65,9 +61,14 @@
                 console.log("Error: " + error);
             });
         }
-        console.log(a);
     function favourite(event) {
+
         object = event.target;
+        fetch(`http://localhost:5000/movie/${object.id.replace('favourite','')}`,
+        {
+            method: "POST"
+        })
+
         if(object.innerHTML == "unfavourite") {
             object.innerHTML = 'favourite';
         }
