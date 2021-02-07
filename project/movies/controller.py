@@ -10,6 +10,8 @@ movies_blueprint = Blueprint(
     template_folder='templates'
 )   
 
+# get movie details
+
 @movies_blueprint.route('/<id>', methods=["GET"])
 def movie(id):
 
@@ -17,7 +19,7 @@ def movie(id):
 
     return render_template('movie.html', movie=r.json())
 
-# favourite logic
+# favourite toggle logic
 
 @movies_blueprint.route('/<id>', methods=["POST"])
 @login_required
@@ -40,6 +42,8 @@ def favourite(id):
         db.session.commit()
         return redirect(request.args.get('url'))
 
+
+# method for checking if favourited
 
 @movies_blueprint.route('/<id>', methods=["GET"])
 @login_required
