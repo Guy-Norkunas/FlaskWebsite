@@ -46,6 +46,6 @@ def favourite(id):
 def isFavourite(id):
     favourite = Movies.query.filter_by(user_id=current_user.id).filter_by(movie_id=id).first()
     if favourite:
-        return True
+        return "True"
     else:
-        return False
+        return "False"
