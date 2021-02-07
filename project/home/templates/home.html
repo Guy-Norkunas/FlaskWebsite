@@ -4,26 +4,7 @@
 {% for movie in movies %}
 
 
-<script>
-    button = document.getElementById("favourite");
-    button.innerHTML = "favourite"
 
-    fetch("http://localhost:5000/movie/{{movie.id}}/favourite")
-        .then(function (response) {
-            return response;
-        })
-        .then(function (response) {
-            console.log(response);
-        })
-        .catch(function (error) {
-            console.log("Error: " + error);
-        });
-
-    function favourite() {
-        console.log("clicked button")
-        button.innerHTML = "unfavourite"        
-    }
-</script>
 
 <div style="width: auto;">
     <div class="container" style="justify-content: center; margin: 10px; background-color: beige; border-width  : 1px; border-color: black; border-radius: 20px; border-style: solid;">
@@ -42,7 +23,7 @@
                             <p class="card-text"><small class="text-muted">{{movie['release_date']}}</small></p>
                         </a>
                         {% if current_user.id %}
-                        <button id="favourite" type="button" onclick="favourite()">FAVOURITE</button>
+                        <button id="favourite{{movie.id}}" type="button" onclick="favourite()">temp</button>
                         {% endif %}
                     </div>
                 </div>
@@ -52,6 +33,43 @@
 </div>
 
 
+
+
 {% endfor %}
+
+<script>
+    var myButtons = document.getElementsByTagName('button');
+
+    for (const movie in myButtons){
+
+        id = myButtons[movie].id.replace('favourite','');
+
+        fetch("http://localhost:5000/movie/${id}/favourite")
+            .then(function (response) {
+                console.log("hello?")
+                return response;
+            })  
+            .then(function (response) {
+                console.log("this is the response.url.slice(-2): ")
+                console.log(response.url.slice(-2))
+
+                if(response.url.slice(-2) == "no"){
+                    console.log("if")
+                    // myButtons[movie].innerHTML = "favourite";
+                }
+                else {
+                    console.log("else")
+                    // myButtons[movie].innerHTML = "unfavourite"
+                }
+            })
+            .catch(function (error) {
+                console.log("Error: " + error);
+            });
+        }
+
+    function favourite() {
+        // button.innerHTML = "favourite"   
+    }
+</script>
 
 {% endblock %}
