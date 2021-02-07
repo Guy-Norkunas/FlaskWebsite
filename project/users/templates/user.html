@@ -44,7 +44,7 @@
     for (const movie in myButtons){
         id = myButtons[movie].id.replace('favourite','');
         ids.push(id);
-        a = fetch(`http://localhost:5000/movie/${id}/favourite`)
+        a = fetch(`https://movie-comparer.herokuapp.com/movie/${id}/favourite`)
             .then(function (response) {
                 return response;
             })  
@@ -64,7 +64,7 @@
     function favourite(event) {
 
         object = event.target;
-        fetch(`http://movie-comparer.herokuapp.com/movie/${object.id.replace('favourite','')}`,
+        fetch(`https://movie-comparer.herokuapp.com/movie/${object.id.replace('favourite','')}`,
         {
             method: "POST"
         })
