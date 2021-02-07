@@ -8,6 +8,17 @@
     button = document.getElementById("favourite");
     button.innerHTML = "favourite"
 
+    fetch("http://localhost:5000/movie/{{movie.id}}")
+        .then(function (response) {
+            return response.body.text;
+        })
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log("Error: " + error);
+        });
+
     function favourite() {
         console.log("clicked button")
         button.innerHTML = "unfavourite"        
