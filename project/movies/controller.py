@@ -39,3 +39,13 @@ def favourite(id):
         db.session.add(new_favourite)
         db.session.commit()
         return redirect(request.args.get('url'))
+
+
+@movies_blueprint.route('/<id>', methods=["GET"])
+@login_required
+def isFavourite(id):
+    favourite = Movies.query.filter_by(user_id=current_user.id).filter_by(movie_id=id).first()
+    if favourite:
+        return True
+    else:
+        return False
