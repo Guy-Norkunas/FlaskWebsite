@@ -39,14 +39,14 @@
 
 <script>
     var myButtons = document.getElementsByTagName('button');
+    var ids = []
 
     for (const movie in myButtons){
 
         id = myButtons[movie].id.replace('favourite','');
-
-        fetch("http://localhost:5000/movie/${id}/favourite")
+        ids.push(id);
+        a = fetch(`http://localhost:5000/movie/${id}/favourite`)
             .then(function (response) {
-                console.log("hello?")
                 return response;
             })  
             .then(function (response) {
@@ -66,7 +66,7 @@
                 console.log("Error: " + error);
             });
         }
-
+        console.log(a);
     function favourite() {
         // button.innerHTML = "favourite"   
     }
