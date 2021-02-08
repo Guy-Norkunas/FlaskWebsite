@@ -12,6 +12,7 @@ mysqlclient = "*"
 flask-login = "*"
 requests = "*"
 gunicorn = "*"
+boto3 = "*"
 
 [dev-packages]
 
