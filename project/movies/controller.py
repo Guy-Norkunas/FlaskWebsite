@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, redirect, request
 from flask_login import current_user, login_required
-import requests
+import requests, os
 from project.models import Movies
 from project import db
 

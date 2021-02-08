@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request
 from flask_login import login_required, current_user
 from project.models import Movies, User
-import requests
+import requests, os
 
 
 compare_blueprint = Blueprint(
