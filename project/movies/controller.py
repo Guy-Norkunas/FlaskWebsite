@@ -15,7 +15,7 @@ movies_blueprint = Blueprint(
 @movies_blueprint.route('/<id>', methods=["GET"])
 def movie(id):
 
-    r = requests.get(f"https://api.themoviedb.org/3/movie/{id}?api_key=cd082f86556318fbd6e151825ae40fc7&language=en-US")
+    r = requests.get(f"https://api.themoviedb.org/3/movie/{id}?api_key={os.environ.get('API_KEY')}&language=en-US")
 
     return render_template('movie.html', movie=r.json())
 
