@@ -6,6 +6,9 @@ import os
 
 # basic initialisation
 
+print(os.environ)
+print(os.environ.get('DATABASE_URI'))
+
 app = Flask(__name__)
 
 # database connection / config

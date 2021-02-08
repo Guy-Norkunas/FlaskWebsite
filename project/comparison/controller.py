@@ -24,7 +24,7 @@ def index():
 
         for common_movie in common_movies:
 
-            r = requests.get(f"https://api.themoviedb.org/3/movie/{common_movie[0]}?api_key=cd082f86556318fbd6e151825ae40fc7&language=en-US")
+            r = requests.get(f"https://api.themoviedb.org/3/movie/{common_movie[0]}?api_key={os.environ.get('API_KEY')}&language=en-US")
             movies.append(r.json())
 
         return render_template('compare.html', movies = movies)
