@@ -2,6 +2,7 @@ from flask import Flask, render_template, url_for, redirect, get_flashed_message
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager, current_user
+import os
 
 # basic initialisation
 
@@ -9,9 +10,9 @@ app = Flask(__name__)
 
 # database connection / config
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://admin:password@database-1.cwzkcekt4xsp.ap-southeast-2.rds.amazonaws.com:3311/MovieComparer'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = "test123"
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 db = SQLAlchemy(app)
 db.init_app(app)
 migrate = Migrate(app, db)
