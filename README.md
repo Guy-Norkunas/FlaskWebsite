@@ -46,3 +46,16 @@ flask run
 ```
 
 - Open a webrowser and go to http://localhost:5000 and you should see the homepage of the website
+
+#
+## Todo:
+
+- Image uploading
+- Testing/Linting 
+- CI/CD
+- See others movies that aren't common
+- Friends list?
+- Redo HTML/CSS
+- Account settings (change profile pic, change username, delete account(should delete favourited movies))
+- Send form data encrpyted
+- 
