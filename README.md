@@ -16,7 +16,7 @@ pipenv install
 ### 3. Add some variables to environment
 
 - Get API_KEY from https://www.themoviedb.org/
-- DATABASE_URI is in the form [db]://[user]:[password]@[host]:[port]/[dbname]
+- DATABASE_URI is in the form [db]://[user]:[password]@[host]:[port]/[dbname] eg. mysql://root:pass@localhost/test
 - Secret key is used for encryption
 
 ```
