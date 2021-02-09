@@ -25,7 +25,7 @@ export DATABASE_URI=""
 export SECRET_KEY=""
 ```
 #
-### 4. Setting up database
+### 4.1 Setting up database
 
 run these commands to set up your database
 
@@ -34,6 +34,10 @@ flask db init
 flask db migrate
 flask db upgrade
 ```
+### 4.2 Alternative
+
+if that doesn't work create a users table and movies table in your database. give users a username columnn and password column, both of type VARCHAR(100). then give the movies table a movie_id column and user_id column, these are both of type INT.
+
 #
 ### 5. You're ready to run the server
 
