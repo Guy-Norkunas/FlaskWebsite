@@ -17,12 +17,12 @@ pipenv install
 
 - Get API_KEY from https://www.themoviedb.org/
 - DATABASE_URI is in the form [db]://[user]:[password]@[host]:[port]/[dbname] eg. mysql://root:pass@localhost/test
-- Secret key is used for encryption
+- SECRET_KEY is used for encryption
 
 ```
-export API_KEY
-export DATABASE_URI
-export SECRET_KEY
+export API_KEY=""
+export DATABASE_URI=""
+export SECRET_KEY=""
 ```
 #
 ### 4. Setting up database
