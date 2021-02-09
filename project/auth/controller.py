@@ -4,7 +4,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from project.models import User
 from project import db
 
-
 auth_blueprint = Blueprint(
     'auth',
     __name__,
@@ -30,6 +29,7 @@ def login_get():
 def login_post():
 
     if current_user.is_authenticated:
+
         flash('You are already logged in')
         return redirect(url_for('home.index'))
 
@@ -76,9 +76,11 @@ def signup_post():
     # check if the username is already taken
 
     if User.query.filter_by(username=username).first():
+
         flash('Username is already taken')
         return redirect(url_for('auth.signup_get'))
     else:
+
         new_user = User(username=username, password=generate_password_hash(password, method='sha256'))
         db.session.add(new_user)
         db.session.commit()

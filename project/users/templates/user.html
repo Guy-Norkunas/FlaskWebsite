@@ -23,7 +23,7 @@
                             <p class="card-text"><small class="text-muted">{{movie['release_date']}}</small></p>
                         </a>
                         {% if current_user.id %}
-                        <button id="favourite{{movie.id}}" type="button" onclick="favourite(event)">temp</button>
+                        <button id="favourite{{movie.id}}" type="button" onclick="favourite(event)"></button>
                         {% endif %}
                     </div>
                 </div>
@@ -44,7 +44,7 @@
     for (const movie in myButtons){
         id = myButtons[movie].id.replace('favourite','');
         ids.push(id);
-        a = fetch(`http://localhost:5000/movie/${id}/favourite`)
+        a = fetch(`/movie/${id}/favourite`)
             .then(function (response) {
                 return response;
             })  
@@ -64,7 +64,7 @@
     function favourite(event) {
 
         object = event.target;
-        fetch(`http://localhost:5000/movie/${object.id.replace('favourite','')}`,
+        fetch(`/movie/${object.id.replace('favourite','')}`,
         {
             method: "POST"
         })

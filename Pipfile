@@ -11,6 +11,8 @@ werkzeug = "==0.16.0"
 mysqlclient = "*"
 flask-login = "*"
 requests = "*"
+gunicorn = "*"
+boto3 = "*"
 
 [dev-packages]
 
